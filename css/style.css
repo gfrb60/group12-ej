@@ -4,16 +4,17 @@ html,body,.container {
 .container {
 
 }
+/*左侧导航栏*/
 .container > .left {
 	width: 220px;
-	background-color: #333;
+	background-color: #6ca4dacf;
 	height: 100%;
 	float: left;
-	color: #ffffff;
+	color: #333;
 }
 .container > .left a {
-	color: #ffffff;
-	font-size: 14px;
+	color: #032f62;
+	font-size: 16px;
 }
 .left > .title {
 	font-size: 20px;
@@ -37,6 +38,8 @@ html,body,.container {
 	color: #333;
 }
 
+
+/*右侧头部栏*/
 .container > .right {
 	box-sizing: border-box;
 	height: 100%;
@@ -53,8 +56,15 @@ html,body,.container {
 }
 .container > .right >.content >.mb_nav{
 	border-bottom: 1px solid #ccc;
-	line-height: 2em;
+	line-height: 2.5em;
 	margin-bottom: .5em;
+	font-size: 16px;
+}
+
+/*主体内容*/
+.container > .right >.content >.wrapper{
+	box-sizing: border-box;
+	padding: 1em;
 }
 
 
