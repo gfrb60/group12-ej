@@ -7,13 +7,13 @@ html,body,.container {
 /*左侧导航栏*/
 .container > .left {
 	width: 220px;
-	background-color: #6ca4dacf;
+	background-color: #8db33a;
 	height: 100%;
 	float: left;
-	color: #333;
+	color: #fff;
 }
 .container > .left a {
-	color: #032f62;
+	color: #fff;
 	font-size: 16px;
 }
 .left > .title {
@@ -32,10 +32,7 @@ html,body,.container {
 	border-bottom: 1px solid #ededed
 }
 .left >ul.left_nav > li.current{
-	background-color: #ededed;
-}
-.left >ul.left_nav > li.current a{
-	color: #333;
+	background-color: #424242;
 }
 
 
