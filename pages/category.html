@@ -1,3 +1,69 @@
-<body>
-	
-</body>
+<style type="text/css">
+	.btns{
+		margin-bottom: 5px;
+	}
+	.btn{
+		display: inline-block;
+		padding: .3em 1.2em;
+		border-radius: 3px;
+		border: 1px solid #ededed;
+	}
+	.btns div:nth-child(4){
+		float: right;
+	}
+	.btns input{
+		line-height: 1.5em;
+	}
+	table.cg_table{
+		box-sizing: border-box;
+		width: 100%;
+		border-collapse: collapse;
+	}
+	table.cg_table th,
+	table.cg_table td{
+		border: 1px solid #ccc;
+		line-height: 2em;
+		text-align: center;
+	}
+	table.cg_table thead tr{
+		background-color: #c6e677;
+	}
+	table.cg_table tbody tr:hover{
+		background-color: #ededed;
+	}
+</style>
+
+<div class="category">
+	<div class="btns">
+		<div class="btn" id="btn_add">添加</div>
+		<div class="btn" id="btn_dels">批量删除</div>
+		<div class="btn" id="btn_out">导出</div>
+		<div><input type="search" name="search" placeholder="请输入..."></div>
+	</div>
+	<table class="cg_table">
+		<thead>
+			<tr>
+				<th></th>
+				<th>编号</th>
+				<th>分类名称</th>
+				<th>数量</th>
+				<th>类型</th>
+				<th>操作</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><input type="checkbox"></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td>
+					<a href="javascript:void(0);" class="btn_del">删除</a>
+					<a href="javascript:void(0);" class="btn_upd">修改</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
