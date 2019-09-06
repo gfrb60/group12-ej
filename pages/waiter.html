@@ -1,7 +1,109 @@
-<style></style>
+<style>
+	table.table {
+		box-sizing: border-box;
+		width: 100%;
+		border-collapse: collapse;
+		font-weight: normal;
+		color: rgba(0,0,0,.65);
+	}
+	table.table thead{
+		background-color: #c6e677;
+	}
+	table.table td ,
+	table.table th {
+		border: 1px solid #e8e8e8;
+		line-height: 2em;
+		text-align: center;
+	}
+	table.table tbody>tr:hover{
+		background-color: #fafafa;
+	}
+	table.table tbody a {
+		margin-left: 20px;
+		text-decoration: none;
+		color: #fe872d;
+	}
+	table.table tbody a:hover{
+		color: #fd8e41d9;
+	}
+</style>
+
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
 <script>
-	
+
+var baseURL = "http://134.175.154.93:6677";
+
+
+// 初始化数据函数
+function initData(){
+	var url = "/waiter/findAllWaiter"
+	$.get(baseURL+url,function(response){
+		$("#customer_tbl > tbody").empty();
+		response.data.forEach(function(item){
+			var newTr = $(`<tr>
+				<td><input type="checkbox" value="`+item.id+`"></td>
+				<td>`+item.realname+`</td>
+				<td>`+item.telephone+`</td>
+				<td>`+item.password+`</td>
+				<td>
+					<a class="btn_del" href="javascript:void(0)">删除</a>
+					<a class="btn_upd" href="javascript:void(0)">修改</a>
+					<a class="btn_mes" href="javascript:void(0)">详情</a>
+				</td>
+			</tr>`);
+			$("#customer_tbl > tbody").append(newTr);
+		});
+	});
+}
+
+
+$(function(){
+	// 初始化加载数据
+	initData();
+
+	// 为删除、修改、详情按钮绑定事件
+	$("#customer_tbl > tbody").on("click","a",function(){
+		switch(this.className){
+			case "btn_del":
+				alert("确定删除一条记录吗?");
+				var url = "/waiter/deleteWaiterById";
+				//获取需要删除的id
+				var id = $(this).parents("tr").find("input").val()
+				// get请求方式的数据必须为对象传递
+				var data = {id:id};
+				// 调用jQuery的ajax方法删除一条记录并初始化数据
+				$.get(baseURL+url,data,function(response){
+					console.log(response);
+					alert(response.message);
+					initData();
+				});
+				break;
+			case "btn_upd":
+				alert("确定修改一条记录吗?");
+				break;
+			case "btn_mes":
+				alert("查看详情");
+				break;
+		}
+	})
+
+})
 </script>
+
 <div class="waiter">
-	员工管理
+	<table class="table" id="customer_tbl">
+		<thead>
+			<tr>
+				<th width="60px"><span>编号</span></th>
+				<th width="200px">姓名</th>
+				<th>手机号</th>
+				<th>密码</th>
+				<th width="300px">操作</th>
+			</tr>
+		</thead>
+		<tbody>
+			
+		</tbody>
+	</table>
 </div>
